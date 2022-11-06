@@ -1,13 +1,4 @@
-import {
-  Image,
-  Text,
-  Container,
-  ThemeIcon,
-  Title,
-  SimpleGrid,
-  createStyles,
-  List,
-} from "@mantine/core";
+import { Container, createStyles, List, Text, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

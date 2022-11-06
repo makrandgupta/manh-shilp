@@ -1,4 +1,4 @@
-import { MantineProvider, Text, Button, Stack } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { About } from "./components/about";
 import { ContactUs } from "./components/contact";
 import { Header } from "./components/header";

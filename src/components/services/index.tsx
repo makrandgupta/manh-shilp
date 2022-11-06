@@ -1,13 +1,11 @@
 import {
-  createStyles,
-  Badge,
-  Group,
-  Title,
-  Text,
   Card,
-  SimpleGrid,
   Container,
+  createStyles,
   Image,
+  SimpleGrid,
+  Text,
+  Title,
 } from "@mantine/core";
 import counsellingImage from "./counselling.jpg";
 import mentoringImage from "./mentoring.jpg";
