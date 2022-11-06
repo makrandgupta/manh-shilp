@@ -1,4 +1,5 @@
 import { MantineProvider, Text, Button, Stack } from "@mantine/core";
+import { About } from "./components/about";
 import { Header } from "./components/header";
 import { links } from "./components/header/links";
 import { Home } from "./components/home";
@@ -9,6 +10,7 @@ export default function App() {
     <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
       <Header links={links} />
       <Home />
+      <About />
     </MantineProvider>
   );
 }
