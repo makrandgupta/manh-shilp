@@ -39,9 +39,21 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    lineHeight: 1,
-    textAlign: "center",
-    marginTop: theme.spacing.xl,
+    fontSize: 34,
+    fontWeight: 900,
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 24,
+    },
+    "&::after": {
+      content: '""',
+      display: "block",
+      backgroundColor: theme.fn.primaryColor(),
+      width: 45,
+      height: 2,
+      marginTop: theme.spacing.sm,
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
   },
 
   description: {
@@ -67,10 +79,8 @@ export function About() {
 
   return (
     <Container size={700} className={classes.wrapper}>
-      <Text className={classes.supTitle}>About</Text>
-
-      <Title className={classes.title} order={2}>
-        We're <span className={classes.highlight}>here</span> to help
+      <Title className={classes.title} order={2} align="center">
+        About
       </Title>
 
       <Container size={660} p={0}>

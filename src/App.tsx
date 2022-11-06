@@ -1,8 +1,10 @@
 import { MantineProvider, Text, Button, Stack } from "@mantine/core";
 import { About } from "./components/about";
+import { ContactUs } from "./components/contact";
 import { Header } from "./components/header";
 import { links } from "./components/header/links";
 import { Home } from "./components/home";
+import { Services } from "./components/services";
 import { theme } from "./theme";
 
 export default function App() {
@@ -11,6 +13,8 @@ export default function App() {
       <Header links={links} />
       <Home />
       <About />
+      <Services />
+      <ContactUs />
     </MantineProvider>
   );
 }

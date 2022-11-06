@@ -7,8 +7,8 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import logo from "../../assets/full_logo.webp";
-import background from "./home_background.webp";
+import logo from "../../assets/full_logo.png";
+import background from "./home_background.jpg";
 
 const useStyles = createStyles((theme) => ({
   background: {

@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link } from "./links";
-import logo from "../../assets/full_logo.webp";
+import logo from "../../assets/full_logo.png";
 
 const useStyles = createStyles((theme) => ({
   header: {
