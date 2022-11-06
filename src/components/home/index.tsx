@@ -1,22 +1,25 @@
 import {
+  BackgroundImage,
+  Button,
+  Container,
   createStyles,
   Image,
-  Container,
-  Title,
-  Button,
-  Group,
   Text,
-  List,
-  ThemeIcon,
-  BackgroundImage,
+  Title,
 } from "@mantine/core";
 import logo from "../../assets/full_logo.webp";
-import background from "../../assets/home_background.webp";
+import background from "./home_background.webp";
 
 const useStyles = createStyles((theme) => ({
   background: {
-    height: "100vh",
+    height: "max-content",
   },
+  outer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   inner: {
     display: "flex",
     justifyContent: "space-between",
@@ -75,7 +78,7 @@ const useStyles = createStyles((theme) => ({
 export function Home() {
   const { classes } = useStyles();
   return (
-    <div>
+    <div className={classes.outer}>
       <BackgroundImage src={background} className={classes.background}>
         <Container pt={60}>
           <div className={classes.inner}>
