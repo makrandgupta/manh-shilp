@@ -90,7 +90,7 @@ export function Header({ links }: HeaderProps) {
   ));
 
   return (
-    <MantineHeader height={60} mb={120}>
+    <MantineHeader height={100} fixed zIndex={1000}>
       <Container className={classes.header}>
         <Image src={logo} alt="Manh:Shilp Logo" width={200} />
         <Group spacing={5} className={classes.links}>
