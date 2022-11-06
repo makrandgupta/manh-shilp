@@ -1,12 +1,25 @@
-import {
-  createStyles,
-  ThemeIcon,
-  Text,
-  SimpleGrid,
-  Box,
-  Stack,
-} from "@mantine/core";
-import { IconSun, IconPhone, IconMapPin, IconAt } from "@tabler/icons";
+import { Box, createStyles, Stack, Text, ThemeIcon } from "@mantine/core";
+import { IconAt, IconMapPin, IconPhone, IconSun } from "@tabler/icons";
+
+const data = [
+  { title: "Email", description: "info@manhshilp.com", icon: IconAt },
+  {
+    title: "Phone",
+    description: "+91 9910712955",
+    icon: IconPhone,
+  },
+  {
+    title: "Phone",
+    description: "+91 9205299645",
+    icon: IconPhone,
+  },
+  {
+    title: "Address",
+    description: "Ghaziabad, UP, India",
+    icon: IconMapPin,
+  },
+  { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
+];
 
 type ContactIconVariant = "white" | "gradient";
 
@@ -82,13 +95,6 @@ function ContactIcon({
     </div>
   );
 }
-
-const data = [
-  { title: "Email", description: "hello@mantine.dev", icon: IconAt },
-  { title: "Phone", description: "+49 (800) 335 35 35", icon: IconPhone },
-  { title: "Address", description: "844 Morris Park avenue", icon: IconMapPin },
-  { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
-];
 
 export function ContactIconsList({}) {
   const items = data.map((item, index) => (
