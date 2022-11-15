@@ -1,24 +1,33 @@
-import { Box, createStyles, Stack, Text, ThemeIcon } from "@mantine/core";
-import { IconAt, IconMapPin, IconPhone, IconSun } from "@tabler/icons";
+import {
+  Anchor,
+  Box,
+  createStyles,
+  Stack,
+  Text,
+  ThemeIcon,
+} from "@mantine/core";
+import { IconAt, IconBrandWhatsapp, IconMapPin } from "@tabler/icons";
 
 const data = [
-  { title: "Email", description: "info@manhshilp.com", icon: IconAt },
   {
-    title: "Phone",
-    description: "+91 9910712955",
-    icon: IconPhone,
+    title: "Email",
+    description: "info@manhshilp.com",
+    icon: IconAt,
+    link: "mailto:info@manhshilp.com",
   },
   {
-    title: "Phone",
-    description: "+91 9205299645",
-    icon: IconPhone,
+    title: "WhatsApp",
+    description: "+91 9910712955",
+    icon: IconBrandWhatsapp,
+    link: "https://wa.me/919910712955",
   },
   {
     title: "Address",
     description: "Ghaziabad, UP, India",
     icon: IconMapPin,
+    link: "https://goo.gl/maps/FPe2YiRwPUJRrDRXA",
   },
-  { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
+  // { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
 ];
 
 type ContactIconVariant = "white" | "gradient";
@@ -46,6 +55,10 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
   },
 
   title: {
+    "a:link": { textDecoration: "none" },
+    "a:visited": { textDecoration: "none" },
+    "a:hover": { textDecoration: "none" },
+    "a:active": { textDecoration: "none" },
     color:
       variant === "gradient"
         ? theme.colors.gray[6]
@@ -63,6 +76,7 @@ interface ContactIconProps
   title: React.ReactNode;
   description: React.ReactNode;
   variant?: ContactIconVariant;
+  link: string;
 }
 
 function ContactIcon({
@@ -71,28 +85,31 @@ function ContactIcon({
   description,
   variant = "gradient",
   className,
+  link,
   ...others
 }: ContactIconProps) {
   const { classes, cx } = useStyles({ variant });
   return (
-    <div className={cx(classes.wrapper, className)} {...others}>
-      {variant === "gradient" ? (
-        <ThemeIcon size={40} radius="md" className={classes.icon}>
-          <Icon size={24} />
-        </ThemeIcon>
-      ) : (
-        <Box mr="md">
-          <Icon size={24} />
-        </Box>
-      )}
+    <Anchor href={link}>
+      <div className={cx(classes.wrapper, className)} {...others}>
+        {variant === "gradient" ? (
+          <ThemeIcon size={40} radius="md" className={classes.icon}>
+            <Icon size={24} />
+          </ThemeIcon>
+        ) : (
+          <Box mr="md">
+            <Icon size={24} />
+          </Box>
+        )}
 
-      <div>
-        <Text size="xs" className={classes.title}>
-          {title}
-        </Text>
-        <Text className={classes.description}>{description}</Text>
+        <div>
+          <Text size="xs" className={classes.title}>
+            {title}
+          </Text>
+          <Text className={classes.description}>{description}</Text>
+        </div>
       </div>
-    </div>
+    </Anchor>
   );
 }
 

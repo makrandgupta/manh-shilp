@@ -10,11 +10,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import {
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube,
-} from "@tabler/icons";
+import { IconBrandLinkedin } from "@tabler/icons";
 import { MutableRefObject } from "react";
 import { ContactIconsList } from "./ContactsList";
 
@@ -81,25 +77,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
-
 type Props = {
   scrollRef: MutableRefObject<HTMLDivElement>;
 };
 
 export function Contact({ scrollRef }: Props) {
   const { classes } = useStyles();
-
-  const icons = social.map((Icon, index) => (
-    <ActionIcon
-      key={index}
-      size={28}
-      className={classes.social}
-      variant="transparent"
-    >
-      <Icon size={22} stroke={1.5} />
-    </ActionIcon>
-  ));
 
   return (
     <div className={classes.wrapper} ref={scrollRef}>
@@ -112,12 +95,22 @@ export function Contact({ scrollRef }: Props) {
           <div>
             <Title className={classes.title}>Contact us</Title>
             <Text className={classes.description} mt="sm" mb={30}>
-              Leave your email and we will get back to you within 24 hours
+              Leave your email and we will get back to you
             </Text>
 
             <ContactIconsList />
 
-            <Group mt="xl">{icons}</Group>
+            <Group mt="xl">
+              <ActionIcon
+                size={28}
+                className={classes.social}
+                variant="transparent"
+                component="a"
+                href="https://www.linkedin.com/in/manhshilp-advisors"
+              >
+                <IconBrandLinkedin size={22} stroke={1.5} />
+              </ActionIcon>
+            </Group>
           </div>
           <div className={classes.form}>
             <TextInput
@@ -135,7 +128,7 @@ export function Contact({ scrollRef }: Props) {
             <Textarea
               required
               label="Your message"
-              placeholder="I want to order your goods"
+              placeholder="Hi Manh:Shilp Advisors, I want to…"
               minRows={4}
               mt="md"
               classNames={{ input: classes.input, label: classes.inputLabel }}
