@@ -1,15 +1,15 @@
-import { useState } from "react";
 import {
-  createStyles,
-  Header as MantineHeader,
-  Container,
-  Group,
   Burger,
+  Container,
+  createStyles,
+  Group,
+  Header as MantineHeader,
   Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link } from "./links";
+import { useState } from "react";
 import logo from "../../assets/full_logo.png";
+import { ScrollableLinks } from "./links";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -65,27 +65,28 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface HeaderProps {
-  links: Link[];
+  links: ScrollableLinks;
 }
 
 export function Header({ links }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState(links["Home"].link);
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
+  const items = Object.values(links).map(({ link, label, scrollIntoView }) => (
     <a
-      key={link.label}
-      href={link.link}
+      key={label}
+      href={link}
       className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
+        [classes.linkActive]: active === link,
       })}
       onClick={(event) => {
         event.preventDefault();
-        setActive(link.link);
+        setActive(link);
+        scrollIntoView();
       }}
     >
-      {link.label}
+      {label}
     </a>
   ));
 

@@ -7,6 +7,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { FC, MutableRefObject } from "react";
 import logo from "../../assets/full_logo.png";
 import background from "./home_background.jpg";
 
@@ -75,18 +76,22 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Home() {
+type Props = {
+  scrollRef: MutableRefObject<HTMLDivElement>;
+};
+
+export function Home({ scrollRef }: Props) {
   const { classes } = useStyles();
   return (
-    <div className={classes.outer}>
+    <div className={classes.outer} ref={scrollRef}>
       <BackgroundImage src={background} className={classes.background}>
         <Container pt={60}>
           <div className={classes.inner}>
             <div className={classes.content}>
               <Title className={classes.title}>
-                Career and Business Counselling
+                Business and Social Wellbeing Advisors
               </Title>
-              <Text mt="md">
+              <Text mt="md" size="lg">
                 Manh:Shilp means "to craft minds" in Sanskrit. Manh:Shilp's
                 mission is to collaborate with industry leaders and students to
                 help tackle their most important challenges and capture their

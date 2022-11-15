@@ -1,4 +1,5 @@
 import { Container, createStyles, List, Text, Title } from "@mantine/core";
+import { MutableRefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -64,18 +65,21 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === "dark" ? theme.white : "inherit",
   },
 }));
+type Props = {
+  scrollRef: MutableRefObject<HTMLDivElement>;
+};
 
-export function About() {
+export function About({ scrollRef }: Props) {
   const { classes } = useStyles();
 
   return (
-    <Container size={700} className={classes.wrapper}>
+    <Container size={700} className={classes.wrapper} ref={scrollRef}>
       <Title className={classes.title} order={2} align="center">
         About
       </Title>
 
       <Container size={660} p={0}>
-        <Text color="dimmed" className={classes.description}>
+        <Text color="dimmed" className={classes.description} size="lg">
           Manh:Shilp aims to add value to careers and businesses by counselling
           and mentoring individuals. A study showed that companies promoted
           employees who were mentored five times more often and those who were
@@ -83,7 +87,7 @@ export function About() {
         </Text>
       </Container>
 
-      <List mt={30} spacing="sm" size="sm">
+      <List mt={30} spacing="sm" size="md">
         <List.Item>
           Making you encouraged and empowered in personal & professional
           development.
@@ -97,7 +101,7 @@ export function About() {
           knowledge.
         </List.Item>
         <List.Item>
-          Increasing your confidence; leadership and coaching & mentoring
+          Increasing your confidence, leadership and coaching & mentoring
           skills.
         </List.Item>
         <List.Item>

@@ -7,6 +7,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { MutableRefObject } from "react";
 import counsellingImage from "./counselling.jpg";
 import mentoringImage from "./mentoring.jpg";
 import partneringImage from "./partnering.jpg";
@@ -27,7 +28,7 @@ const mockdata = [
   {
     title: "COUNSELING SESSIONS",
     description:
-      "Manh:Shilp aims to help individuals manage their psychological challenges. We provide psychometric potential assessment, career counseling, vocational guidance and personal counseling. Manh:Shilp offers to help people for their better adjustment and wellness in their daily lives.",
+      "Manh:Shilp aims to help students manage their psychological challenges. We provide psychometric potential assessment, career counseling, vocational guidance and personal counseling. Manh:Shilp offers to help people for their better adjustment and wellness in their daily lives.",
     image: counsellingImage,
   },
 ];
@@ -36,7 +37,6 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
     boxSizing: "border-box",
-    backgroundImage: `linear-gradient(-60deg, ${theme.colors.gray[4]} 0%, ${theme.colors.gray[1]} 100%)`,
     padding: theme.spacing.xl * 2.5,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
@@ -80,7 +80,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Services() {
+type Props = {
+  scrollRef: MutableRefObject<HTMLDivElement>;
+};
+
+export function Services({ scrollRef }: Props) {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature) => (
     <Card
@@ -100,13 +104,13 @@ export function Services() {
       <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
-      <Text size="sm" color="dimmed" mt="sm">
+      <Text size="md" color="dimmed" mt="sm">
         {feature.description}
       </Text>
     </Card>
   ));
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} ref={scrollRef}>
       <Container size="lg" py="xl">
         <Title order={2} className={classes.title} align="center" mt="sm">
           Services

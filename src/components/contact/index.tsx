@@ -1,20 +1,21 @@
 import {
-  createStyles,
-  Text,
-  Title,
-  SimpleGrid,
-  TextInput,
-  Textarea,
-  Button,
-  Group,
   ActionIcon,
+  Button,
   Container,
+  createStyles,
+  Group,
+  SimpleGrid,
+  Text,
+  Textarea,
+  TextInput,
+  Title,
 } from "@mantine/core";
 import {
+  IconBrandInstagram,
   IconBrandTwitter,
   IconBrandYoutube,
-  IconBrandInstagram,
 } from "@tabler/icons";
+import { MutableRefObject } from "react";
 import { ContactIconsList } from "./ContactsList";
 
 const useStyles = createStyles((theme) => ({
@@ -82,7 +83,11 @@ const useStyles = createStyles((theme) => ({
 
 const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
-export function ContactUs() {
+type Props = {
+  scrollRef: MutableRefObject<HTMLDivElement>;
+};
+
+export function Contact({ scrollRef }: Props) {
   const { classes } = useStyles();
 
   const icons = social.map((Icon, index) => (
@@ -97,7 +102,7 @@ export function ContactUs() {
   ));
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} ref={scrollRef}>
       <Container>
         <SimpleGrid
           cols={2}
