@@ -16,6 +16,10 @@ const links: Link[] = [
     link: "/about",
   },
   {
+    label: "Founders",
+    link: "/founders",
+  },
+  {
     label: "Services",
     link: "/services",
   },
