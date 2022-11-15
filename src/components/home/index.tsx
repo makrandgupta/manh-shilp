@@ -99,10 +99,6 @@ export function Home({ scrollRef }: Props) {
                 clients to realize their full potential to make the world and
                 each other better every day.
               </Text>
-
-              <Button mt={30} radius="xl" size="md" className={classes.control}>
-                Get started
-              </Button>
             </div>
             <Image src={logo} className={classes.image} />
           </div>

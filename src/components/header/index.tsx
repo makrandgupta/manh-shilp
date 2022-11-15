@@ -7,7 +7,6 @@ import {
   Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useState } from "react";
 import logo from "../../assets/full_logo.png";
 import { ScrollableLinks } from "./links";
 
@@ -51,17 +50,6 @@ const useStyles = createStyles((theme) => ({
           : theme.colors.gray[0],
     },
   },
-
-  linkActive: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
-  },
 }));
 
 interface HeaderProps {
@@ -70,19 +58,15 @@ interface HeaderProps {
 
 export function Header({ links }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links["Home"].link);
   const { classes, cx } = useStyles();
 
   const items = Object.values(links).map(({ link, label, scrollIntoView }) => (
     <a
       key={label}
       href={link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link,
-      })}
+      className={classes.link}
       onClick={(event) => {
         event.preventDefault();
-        setActive(link);
         scrollIntoView();
       }}
     >

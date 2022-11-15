@@ -1,6 +1,7 @@
 import { MantineProvider } from "@mantine/core";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
+import { FooterSimple } from "./components/footer";
 import { Founders } from "./components/founders";
 import { Header } from "./components/header";
 import { useScrollableLinks } from "./components/header/links";
@@ -19,6 +20,7 @@ export default function App() {
       <Founders scrollRef={scrollableLinks["Founders"].targetRef} />
       <Services scrollRef={scrollableLinks["Services"].targetRef} />
       <Contact scrollRef={scrollableLinks["Contact"].targetRef} />
+      <FooterSimple links={scrollableLinks} />
     </MantineProvider>
   );
 }
