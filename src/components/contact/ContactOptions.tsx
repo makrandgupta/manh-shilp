@@ -27,7 +27,6 @@ const data = [
     icon: IconMapPin,
     link: "https://goo.gl/maps/FPe2YiRwPUJRrDRXA",
   },
-  // { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
 ];
 
 type ContactIconVariant = "white" | "gradient";
@@ -113,7 +112,7 @@ function ContactIcon({
   );
 }
 
-export function ContactIconsList({}) {
+export function ContactOptions() {
   const items = data.map((item, index) => (
     <ContactIcon key={index} variant="white" {...item} />
   ));

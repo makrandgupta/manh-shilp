@@ -1,18 +1,13 @@
 import {
-  ActionIcon,
-  Button,
   Container,
   createStyles,
-  Group,
   SimpleGrid,
   Text,
-  Textarea,
-  TextInput,
   Title,
 } from "@mantine/core";
-import { IconBrandLinkedin } from "@tabler/icons";
 import { MutableRefObject } from "react";
-import { ContactIconsList } from "./ContactsList";
+import { ContactOptions } from "./ContactOptions";
+import SocialLinks from "./SocialLinks";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -42,39 +37,6 @@ const useStyles = createStyles((theme) => ({
       maxWidth: "100%",
     },
   },
-
-  form: {
-    backgroundColor: theme.white,
-    padding: theme.spacing.xl,
-    borderRadius: theme.radius.md,
-    boxShadow: theme.shadows.lg,
-  },
-
-  social: {
-    color: theme.white,
-
-    "&:hover": {
-      color: theme.colors[theme.primaryColor][1],
-    },
-  },
-
-  input: {
-    backgroundColor: theme.white,
-    borderColor: theme.colors.gray[4],
-    color: theme.black,
-
-    "&::placeholder": {
-      color: theme.colors.gray[5],
-    },
-  },
-
-  inputLabel: {
-    color: theme.black,
-  },
-
-  control: {
-    backgroundColor: theme.colors[theme.primaryColor][6],
-  },
 }));
 
 type Props = {
@@ -98,45 +60,8 @@ export function Contact({ scrollRef }: Props) {
               Leave your email and we will get back to you
             </Text>
 
-            <ContactIconsList />
-
-            <Group mt="xl">
-              <ActionIcon
-                size={28}
-                className={classes.social}
-                variant="transparent"
-                component="a"
-                href="https://www.linkedin.com/in/manhshilp-advisors"
-              >
-                <IconBrandLinkedin size={22} stroke={1.5} />
-              </ActionIcon>
-            </Group>
-          </div>
-          <div className={classes.form}>
-            <TextInput
-              label="Email"
-              placeholder="your@email.com"
-              required
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <TextInput
-              label="Name"
-              placeholder="John Doe"
-              mt="md"
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-            <Textarea
-              required
-              label="Your message"
-              placeholder="Hi Manh:Shilp Advisors, I want to…"
-              minRows={4}
-              mt="md"
-              classNames={{ input: classes.input, label: classes.inputLabel }}
-            />
-
-            <Group position="right" mt="md">
-              <Button className={classes.control}>Send message</Button>
-            </Group>
+            <ContactOptions />
+            <SocialLinks />
           </div>
         </SimpleGrid>
       </Container>
